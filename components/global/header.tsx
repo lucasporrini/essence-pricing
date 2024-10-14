@@ -9,7 +9,7 @@ export const Header = () => {
   const currentPage = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-gray-200 h-14 flex items-center justify-around w-full">
+    <nav className="fixed bottom-0 left-0 right-0 h-20 flex items-center justify-around w-full">
       <Link
         href="/"
         className={cn("relative", currentPage === "/" ? "text-blue-500" : "")}
