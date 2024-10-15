@@ -1,3 +1,8 @@
+export type Coords = {
+  latitude: number;
+  longitude: number;
+};
+
 export type Fuel = {
   id: number;
   name: string;

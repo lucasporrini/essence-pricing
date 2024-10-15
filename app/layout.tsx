@@ -1,4 +1,5 @@
 import { Header } from "@/components/global/header";
+import { MapsProvider } from "@/components/providers/maps-provider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -27,10 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased p-2`}
       >
-        {children}
-        <Header />
+        <MapsProvider>
+          {children}
+          <Header />
+        </MapsProvider>
       </body>
     </html>
   );

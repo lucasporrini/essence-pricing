@@ -1,4 +1,4 @@
-export const getCloseStations = async (latitude: string, longitude: string) => {
+export const getCloseStations = async (latitude: number, longitude: number) => {
   try {
     const response = await fetch(
       `https://api.prix-carburants.2aaz.fr/stations/around/${latitude},${longitude}?opendata=v1`

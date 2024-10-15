@@ -1,9 +1,9 @@
-import { Maps } from "@/components/global/maps";
+import { FuelSelect } from "@/components/global/fuel-select";
 
 const MapsPage = () => {
   return (
     <div>
-      <Maps />
+      <FuelSelect />
     </div>
   );
 };
