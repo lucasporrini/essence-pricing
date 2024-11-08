@@ -1,10 +1,19 @@
-export const getCloseStations = async (latitude: number, longitude: number) => {
+"use server";
+
+export const getCloseStations = async ({
+  latitude,
+  longitude,
+}: Coordinates) => {
   try {
     const response = await fetch(
       `https://api.prix-carburants.2aaz.fr/stations/around/${latitude},${longitude}?opendata=v1`
     );
-    const data = await response.json();
-    return data;
+
+    if (!response.ok) {
+      return null;
+    }
+
+    return response.json() as Promise<Stations[]>;
   } catch (err) {
     console.error(err);
   }
