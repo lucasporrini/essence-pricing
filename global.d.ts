@@ -20,6 +20,29 @@ export declare global {
     fin: string;
   };
 
+  type ServicesIconType =
+    | "DAB (Distributeur automatique de billets)"
+    | "Piste poids lourds"
+    | "Vente de pétrole lampant"
+    | "Station de gonflage"
+    | "Lavage automatique"
+    | "Vente de gaz domestique (Butane | Propane)"
+    | "Automate CB 24/24"
+    | "Laverie"
+    | "Toilettes publiques"
+    | "Boutique alimentaire"
+    | "Boutique non alimentaire"
+    | "Wifi"
+    | "Carburant additivé"
+    | "Vente d'additifs carburants"
+    | "Restauration à emporter"
+    | "Bornes électriques"
+    | "Douches"
+    | "Vente de fioul domestique"
+    | "Lavage manuel"
+    | "Relais colis"
+    | "Location de véhicule";
+
   type Stations = {
     adresse: string;
     cp: string;
@@ -45,7 +68,7 @@ export declare global {
         }[];
       }[];
     };
-    services: string[];
+    services: ServicesIconType[];
     rupture: Rupture[];
     ville: string;
   };

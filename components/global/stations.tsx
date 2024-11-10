@@ -10,6 +10,7 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { LoaderCircleIcon, MapPinIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ServicesIconsComponent } from "./services-icons";
 
 export const StationsComponent = () => {
   const [coords, setCoords] = useState<Coordinates>({
@@ -87,15 +88,26 @@ export const StationsComponent = () => {
                     {formatDateToShort(station.prix[0]?.maj)}
                   </span>
                 </div>
-                <span className="text-gray-500">
-                  {getDistanceBetweenPoints(
-                    coords.latitude,
-                    coords.longitude,
-                    convertToDecimal(station.latitude),
-                    convertToDecimal(station.longitude)
-                  ).toFixed(1)}{" "}
-                  km
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-gray-500 text-end">
+                    {getDistanceBetweenPoints(
+                      coords.latitude,
+                      coords.longitude,
+                      convertToDecimal(station.latitude),
+                      convertToDecimal(station.longitude)
+                    ).toFixed(1)}{" "}
+                    km
+                  </span>
+                  <div className="text-gray-700 flex items-center gap-1 justify-end">
+                    {station.services.map((service, i) => (
+                      <ServicesIconsComponent
+                        key={i}
+                        icon={service}
+                        size={20}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col gap-2">
                 <div className="grid grid-cols-2 gap-2">
@@ -117,6 +129,9 @@ export const StationsComponent = () => {
               </div>
             </a>
           ))}
+          {stations.length === 0 && (
+            <p className="text-center">Aucune station trouvée</p>
+          )}
         </div>
       )}
     </div>
